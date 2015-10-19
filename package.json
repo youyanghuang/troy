@@ -1,0 +1,29 @@
+{
+  "name": "troy",
+  "version": "0.0.1",
+  "description": "troy for chrome",
+  "main": "index.js",
+  "scripts": {
+    "test": "no test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ysmood/troy.git"
+  },
+  "keywords": [
+    "troy"
+  ],
+  "author": "http://ysmood.org",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ysmood/troy/issues"
+  },
+  "homepage": "https://github.com/ysmood/troy#readme",
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "nokit": "^0.14.7"
+  },
+  "dependencies": {
+    "babel-runtime": "^5.8.25"
+  }
+}
