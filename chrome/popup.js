@@ -1,13 +1,25 @@
 
 var btnSwitch = document.querySelector(".btnSwitch");
-var sendRequest = window.chrome.extension.sendRequest;
+var chrome = window.chrome;
+var sendMessage = chrome.runtime.sendMessage;
+
+btnSwitch.value = localStorage.btnSwitch || "关闭";
 
 btnSwitch.onclick = function () {
-    if (btnSwitch.value === "关闭") {
-        btnSwitch.value = "开启";
+    var value = localStorage.btnSwitch;
+    sendMessage({ type: "switch", value: value });
 
-        sendRequest({ type: "" })
+    if (value === "关闭") {
+        chrome.browserAction.setIcon({
+            path: "icon-off.png"
+        });
+        value = "开启";
     } else {
-        btnSwitch.value = "关闭";
+        chrome.browserAction.setIcon({
+            path: "icon.png"
+        });
+        value = "关闭";
     }
-}
+
+    btnSwitch.value = localStorage.btnSwitch = value;
+};
