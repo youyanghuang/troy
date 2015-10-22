@@ -6,7 +6,7 @@ function turnOn () {
         pacScript: {
             data: `
                 function FindProxyForURL (url, host) {
-                    if (host === 'test.com') {
+                    if (host === 'www.bilibili.com') {
                         return 'PROXY 127.0.0.1:8123';
                     } else {
                         return "DIRECT";
@@ -37,12 +37,22 @@ function turnOff () {
     );
 }
 
+function updateState () {
+    chrome.browserAction.setIcon({
+        path: localStorage.switch === "关闭" ? "icon-off.png" : "icon.png"
+    });
+}
+
 chrome.runtime.onMessage.addListener(function (msg) {
     if (msg.type === "switch") {
         if (msg.value === "开启") {
-            turnOn();
-        } else {
             turnOff();
+        } else {
+            turnOn();
         }
     }
+
+    updateState();
 });
+
+updateState();
