@@ -1,5 +1,7 @@
 
 var btnSwitch = document.querySelector(".btnSwitch");
+var txtPacUrl = document.querySelector(".txtPacUrl");
+var btnSubmit = document.querySelector(".btnSubmit");
 var chrome = window.chrome;
 var sendMessage = chrome.runtime.sendMessage;
 
@@ -21,6 +23,18 @@ function switchProxy () {
     localStorage.switch = value;
 }
 
+function updatePacUrl () {
+    localStorage.pacUrl = txtPacUrl.value;
+
+    sendMessage({ type: "pacUrl", value: localStorage.pacUrl });
+}
+
 btnSwitch.onclick = switchProxy;
+txtPacUrl.onchange = updatePacUrl;
+btnSubmit.onclick = () => {
+    window.close();
+};
 
 updateState(localStorage.switch);
+
+txtPacUrl.value = localStorage.pacUrl;

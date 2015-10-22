@@ -4,27 +4,33 @@
 <head>
     <title>Troy</title>
     <style>
-        .btnSwitch:focus {
-            outline: none;
-        }
-        .btnSwitch:hover {
-            border: none;
-            color: #FFF;
-            background: #4BBAF1;
-        }
-        .btnSwitch {
+        .btn {
             font-size: 18px;
-            width: 80px;
+            width: 100%;
+            margin: 10px 0;
             height: 32px;
             -webkit-appearance: none;
             border: 1px solid #4BBAF1;
             color: #1DA5E8;
             background: #fff;
         }
+        .btn:focus {
+            outline: none;
+        }
+        .btn:hover {
+            border: none;
+            color: #FFF;
+            background: #4BBAF1;
+        }
+        .txtPacUrl {
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
-    <input class="btnSwitch" type="button" value="">
+    <input class="btnSwitch btn" type="button" value="">
+    <input class="txtPacUrl" type="text" size="24" value="" placeholder="pac 的 url 路径">
+    <input class="btnSubmit btn" type="button" value="确定">
 
     <script src="popup.js"></script>
 </body>
