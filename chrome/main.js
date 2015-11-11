@@ -33,14 +33,14 @@ function turnOff () {
 
 function updateState () {
     chrome.browserAction.setIcon({
-        path: localStorage.switch === "开启" ? "icon.png" : "icon-off.png"
+        path: localStorage.switch === "Enable" ? "icon.png" : "icon-off.png"
     });
 }
 
 chrome.runtime.onMessage.addListener(function (msg) {
     switch (msg.type) {
     case "switch":
-        if (msg.value === "开启") {
+        if (msg.value === "Enable") {
             turnOff();
         } else {
             turnOn();

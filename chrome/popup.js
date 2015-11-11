@@ -6,17 +6,17 @@ var chrome = window.chrome;
 var sendMessage = chrome.runtime.sendMessage;
 
 function updateState (value) {
-    btnSwitch.value = value === "开启" ? "关闭" : "开启";
+    btnSwitch.value = value === "Enable" ? "Disable" : "Enable";
 }
 
 function switchProxy () {
     var value = localStorage.switch;
     sendMessage({ type: "switch", value: value });
 
-    if (value === "开启") {
-        value = "关闭";
+    if (value === "Enable") {
+        value = "Disable";
     } else {
-        value = "开启";
+        value = "Enable";
     }
 
     updateState(value);
