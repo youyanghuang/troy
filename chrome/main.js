@@ -55,3 +55,10 @@ chrome.runtime.onMessage.addListener(function (msg) {
 });
 
 updateState();
+
+if (localStorage.switch === "Enable") {
+    turnOn();
+} else {
+    turnOff();
+}
+
