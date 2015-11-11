@@ -33,7 +33,7 @@ function turnOff () {
 
 function updateState () {
     chrome.browserAction.setIcon({
-        path: localStorage.switch === "关闭" ? "icon-off.png" : "icon.png"
+        path: localStorage.switch === "开启" ? "icon.png" : "icon-off.png"
     });
 }
 
