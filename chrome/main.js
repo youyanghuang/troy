@@ -20,7 +20,7 @@ function turnOn () {
 
 function turnOff () {
     var config = {
-        mode: "auto_detect"
+        mode: "system"
     };
 
     chrome.proxy.settings.set(
