@@ -8,12 +8,16 @@ let app = flow();
 
 async () => {
     app.push(
-        $ => {
-            $.res.setHeader("Access-Control-Allow-Origin", "*");
-            kit.logs($.req.url);
-            $.body = "OK";
-        }
+        proxy.select(/^\/$/, $ => {
+            $.body = `
+                function FindProxyForURL(url, host) {
+                    return "PROXY 127.0.0.1:58732";
+                }
+            `
+        }),
+
+        "OK"
     );
 
-    await app.listen(8123);
+    await app.listen(58732);
 }();
